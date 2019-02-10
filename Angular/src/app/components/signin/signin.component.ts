@@ -12,6 +12,7 @@ export class SigninComponent implements OnInit {
 
   addForm: FormGroup;
   checkLogin: boolean;
+  alert = 'This field is required.';
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
@@ -28,6 +29,7 @@ export class SigninComponent implements OnInit {
         if (data) {
          localStorage.setItem('username', data.username);
          localStorage.setItem('password', data.password);
+         localStorage.setItem('email', data.email);
          localStorage.setItem('firstName', data.firstName);
          localStorage.setItem('lastName', data.lastName);
          localStorage.setItem('id', String(data.id));

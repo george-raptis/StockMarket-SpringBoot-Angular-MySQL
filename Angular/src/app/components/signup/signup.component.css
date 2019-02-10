@@ -18,12 +18,12 @@
   position: fixed;
   left: 0;
   right: 0;
-  top: 20%;
+  top: 10%;
   z-index: 9999;
   margin-left: 20px;
   margin-right: 20px;
 }
 
-.card-body {
-  background-color: rgba(255, 255, 255, 0.6);
+.card {
+  border-radius: 0 !important;
 }

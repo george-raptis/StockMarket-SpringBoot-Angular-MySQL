@@ -8,16 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   username: string;
+  role: string;
 
   constructor() { }
 
   ngOnInit() {
     this.username = localStorage.getItem('username');
+    this.role = localStorage.getItem('role');
   }
 
   logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('password');
+    localStorage.removeItem('email');
     localStorage.removeItem('firstName');
     localStorage.removeItem('lastName');
     localStorage.removeItem('id');

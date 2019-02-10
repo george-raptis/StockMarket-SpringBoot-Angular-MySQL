@@ -54,7 +54,8 @@ export class InventoryComponent implements OnInit {
   }
 
   sellItem(id: number, price: number) {
-    this.amountToGet = price;
+    console.log('id ' + id + ' price ' + price);
+    this.amountToGet = parseFloat(String(price));
     this.newWallet = parseFloat(localStorage.getItem('wallet')) + this.amountToGet;
     this.walletForm.controls['amount'].setValue(this.newWallet);
     this.walletService.updateWallet(this.walletForm.value)
@@ -65,7 +66,5 @@ export class InventoryComponent implements OnInit {
           );
       })
   }
-
-
 
 }

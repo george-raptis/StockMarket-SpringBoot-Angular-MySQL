@@ -25,6 +25,10 @@ import {CryptoService} from './services/crypto.service';
 import { StockCryptoComponent } from './components/stocks/stock-crypto/stock-crypto.component';
 import { InventoryPipe } from './components/inventory/inventory.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
+import {LoginGuard} from './guards/login.guard';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminEditComponent } from './components/admin/admin-edit/admin-edit.component';
+import {AdminGuard} from './guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -42,16 +46,18 @@ import { ProfileComponent } from './components/profile/profile.component';
     StockNewsComponent,
     StockCryptoComponent,
     InventoryPipe,
-    ProfileComponent
+    ProfileComponent,
+    AdminComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES, {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(ROUTES, {onSameUrlNavigation: 'reload'}),
   ],
-  providers: [UserService, StockService, WalletService, InventoryService, CryptoService],
+  providers: [UserService, StockService, WalletService, InventoryService, CryptoService, LoginGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

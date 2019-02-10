@@ -12,10 +12,11 @@ export class SignupComponent implements OnInit {
 
   createForm = this.formBuilder.group({
     id: [0],
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
+    username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(45)])],
+    password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(45)])],
+    email: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(45)])],
+    firstName: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(45)])],
+    lastName: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(45)])],
     role: ['user']
   });
 

@@ -18,6 +18,11 @@
             </label>
             <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Enter password" required>
             <br>
+            <label for="email">
+              email:
+            </label>
+            <input type="text" class="form-control" formControlName="email" name="email" id="email" placeholder="Enter email" required>
+            <br>
             <label for="firstName">
               first name:
             </label>
@@ -31,7 +36,7 @@
             <p>Already have an account? Click <a href="" routerLink="/login">here</a>.</p>
             <br>
             <div class="text-center">
-              <button class="btn btn-success btn-lg" type="submit">Sign up</button>
+              <button class="btn btn-success btn-lg" type="submit" [disabled]="!createForm.valid">Sign up</button>
             </div>
 
           </form>

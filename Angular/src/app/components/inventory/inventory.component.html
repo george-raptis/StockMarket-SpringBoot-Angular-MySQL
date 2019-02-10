@@ -15,7 +15,7 @@
   <tbody>
   <tr *ngFor="let inv of inventory">
     <td hidden>{{inv.id}}</td>
-    <td>{{inv.name}}</td>
+    <td>{{inv.name}} ({{inv.symbol}})</td>
     <td>{{inv.price}}</td>
     <td>{{inv.date | date: 'medium'}}</td>
     <td hidden>{{inv.symbol}}</td>
@@ -25,9 +25,12 @@
       'neutral': inv.price == (inv.symbol | inventory | async)
     }">
       {{(inv.symbol | inventory | async) }}
+      <label>
+        <input hidden #newPrice type="text" [value]="(inv.symbol | inventory | async)">
+      </label>
     </td>
     <td>
-      <button class="btn btn-success btn-sm" (click)="sellItem(inv.id, currentPrice)">Sell</button>
+      <button class="btn btn-success btn-sm" (click)="sellItem(inv.id, newPrice.value)">Sell</button>
     </td>
   </tr>
 

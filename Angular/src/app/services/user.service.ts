@@ -10,6 +10,7 @@ import {UserLogin} from '../models/userLogin';
 export class UserService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  private getUsersUrl = 'http://localhost:8080/api/users';
   private loginUrl = 'http://localhost:8080/api/login';
   private registerUrl = 'http://localhost:8080/api/user';
 
@@ -26,5 +27,9 @@ export class UserService {
 
   update(user: User): Observable<User> {
     return this.http.put<User>(this.registerUrl, user, {headers: this.httpHeaders});
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.getUsersUrl, {headers: this.httpHeaders})
   }
 }

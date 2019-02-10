@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {CompanyInfo} from '../models/companyInfo';
 import {StockNews} from '../models/stockNews';
 import {map} from 'rxjs/operators';
+import {HistoricalPrices} from '../models/historicalPrices';
 
 @Injectable({
   providedIn: 'root'

@@ -9,10 +9,15 @@ import {Wallet} from '../models/wallet';
 export class WalletService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  private walletsUrl = 'http://localhost:8080/api/wallets';
   private walletUrl = 'http://localhost:8080/api/wallet';
 
 
   constructor(private http: HttpClient) { }
+
+  getWallets(): Observable<Wallet[]> {
+    return this.http.get<Wallet[]>(this.walletsUrl, {headers: this.httpHeaders});
+  }
 
   createWallet(wallet: Wallet): Observable<Wallet> {
     return this.http.post<Wallet>(this.walletUrl, wallet, {headers: this.httpHeaders});

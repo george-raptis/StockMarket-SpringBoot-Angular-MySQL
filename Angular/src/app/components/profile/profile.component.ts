@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
     id: [localStorage.getItem('id')],
     username: [localStorage.getItem('username'), Validators.required],
     password: [localStorage.getItem('password'), Validators.required],
+    email: [localStorage.getItem('email'), Validators.required],
     firstName: [localStorage.getItem('firstName'), Validators.required],
     lastName: [localStorage.getItem('lastName'), Validators.required],
     role: ['user']
